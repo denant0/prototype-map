@@ -1,0 +1,44 @@
+.item{
+    /*margin-bottom: 7px;*/
+    font-size: 15px;
+    margin-right: 2px;
+    min-height: 60px;
+    min-width: 20px;
+}
+.data {
+    text-align: right;
+    color: #f0f8ff;
+    display:inline-block;
+}
+.name{
+    float: right;
+    text-align: right;
+    padding: 4px;
+}
+
+.chart {
+    background: #000;
+    font: 12px Arial;
+    shape-rendering: crispEdges;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #aaa;
+    shape-rendering: crispEdges;
+}
+.chart text {
+    font: 12px Arial;
+    fill: #fff;
+}
+.chart .axis text {
+    fill: #aaa;
+}
+
+.verticalText {
+
+-moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    writing-mode: tb-rl;
+}
