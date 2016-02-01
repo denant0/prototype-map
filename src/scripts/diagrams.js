@@ -1,14 +1,17 @@
 costAnalysisMapData = {
     container: 'container',
-    height: 900,
-    columnWidth: 300,
+    height: 960,
+    columnWidth: 400,
     body: [
         {
+            type: 'infrastructure',
             minHeight: 60,
             header: {
                 name: 'Net Worth:',
                 backgroundColor: '#649423',
-                textColor: '#FFFFFF'
+                textColor: '#FFFFFF',
+                value: '320',
+                additionalInfo: 'actual and projected for this fiscal year'
             },
             body: [
                 {
@@ -17,18 +20,21 @@ costAnalysisMapData = {
                         {
                             text: 'Buildings and Land',
                             value: 104,
+                            info: 29,
                             backgroundColor: '#789440',
                             textColor: '#FFFFFF'
                         },
                         {
                             text: 'Structures',
                             value: 90,
+                            info: 12,
                             backgroundColor: '#789440',
                             textColor: '#FFFFFF'
                         },
                         {
                             text: 'Capital Equipment',
                             value: 45,
+                            info: 4,
                             backgroundColor: '#789440',
                             textColor: '#FFFFFF'
                         }
@@ -40,69 +46,83 @@ costAnalysisMapData = {
                         {
                             text: 'Outlays for Capital Projects',
                             value: 120,
+                            info: 22,
                             backgroundColor: '#c4d6a0',
-                            textColor: '#FFFFFF'
+                            textColor: '#133100'
                         },
                         {
                             text: 'Appreciation',
                             value: 80,
+                            info: 24,
                             backgroundColor: '#c4d6a0',
-                            textColor: '#FFFFFF'
+                            textColor: '#133100'
                         },
                         {
                             text: 'Depreciation',
                             value: 50,
+                            info: 12,
                             backgroundColor: '#c4d6a0',
-                            textColor: '#FFFFFF'
+                            textColor: '#133100'
                         },
                         {
                             text: 'Balance Sheet Liability',
                             value: 80,
+                            info: 34,
                             backgroundColor: '#ebf1df',
-                            textColor: '#FFFFFF'
+                            textColor: '#133100'
                         },
                         {
                             text: 'Off-Balance Sheet Liability',
                             value: 50,
+                            info: 4,
                             backgroundColor: '#ffffcc',
-                            textColor: '#FFFFFF'
+                            textColor: '#133100'
                         }
                     ]
                 }
             ]
         },
         {
+            type: 'expenses',
             minHeight: 60,
             header: {
                 name: 'Expense:',
                 backgroundColor: '#31859b',
-                textColor: '#FFFFFF'
+                textColor: '#FFFFFF',
+                value: '142',
+                additionalInfo: 'actual and projected for this fiscal year'
             },
             body: [
                 {
                     name: 'Operating Expenses',
+                    value: '107',
+                    additionalInfo: 'on P&L',
                     boxes: [
                         {
                             text: 'Indirect Services',
                             value: 104,
+                            info: 29,
                             backgroundColor: '#31859b',
                             textColor: '#FFFFFF'
                         },
                         {
                             text: 'Maintenance',
                             value: 90,
+                            info: 12,
                             backgroundColor: '#31859b',
                             textColor: '#FFFFFF'
                         },
                         {
                             text: 'Custodial',
                             value: 45,
+                            info: 4,
                             backgroundColor: '#31859b',
                             textColor: '#FFFFFF'
                         },
                         {
                             text: 'Security',
                             value: 45,
+                            info: 22,
                             backgroundColor: '#31859b',
                             textColor: '#FFFFFF'
                         },
@@ -122,53 +142,59 @@ costAnalysisMapData = {
                             text: 'Property Taxes',
                             value: 45,
                             backgroundColor: '#92cddc',
-                            textColor: '#FFFFFF'
+                            textColor: '#133100'
                         },
                         {
                             text: 'Rent Expenses',
-                            value: 45,
+                            value: 100,
                             backgroundColor: '#92cddc',
-                            textColor: '#FFFFFF'
+                            textColor: '#133100'
                         }
 
                     ]
                 },
                 {
                     name: 'Income',
+                    value: '65',
+                    additionalInfo: 'on P&L',
                     boxes: [
                         {
                             text: 'Income',
                             value: 104,
                             backgroundColor: '#b7dde8',
-                            textColor: '#FFFFFF'
+                            textColor: '#133100'
                         }
                     ]
                 },
                 {
                     name: 'Additional Expenses',
+                    value: '80',
+                    additionalInfo: 'on P&L',
                     boxes: [
                         {
                             text: 'Fit out Depreciation',
                             value: 104,
                             backgroundColor: '#b7dde8',
-                            textColor: '#FFFFFF'
+                            textColor: '#133100'
                         },
                         {
                             text: 'Other PP & Depreciation',
                             value: 104,
                             backgroundColor: '#b7dde8',
-                            textColor: '#FFFFFF'
+                            textColor: '#133100'
                         },
                         {
                             text: 'Mortgage Interest',
                             value: 104,
                             backgroundColor: '#b7dde8',
-                            textColor: '#FFFFFF'
+                            textColor: '#133100'
                         }
                     ]
                 },
                 {
                     name: 'Analysis',
+                    value: '60',
+                    additionalInfo: 'on P&L',
                     boxes: [
                         {
                             text: 'Internal Cost of Capital',
@@ -180,24 +206,26 @@ costAnalysisMapData = {
                             text: 'Mortgage Principal Payments',
                             value: 104,
                             backgroundColor: '#b7dde8',
-                            textColor: '#FFFFFF'
+                            textColor: '#133100'
                         }
                     ]
                 },
                 {
                     name: 'Cash',
+                    value: '64',
+                    additionalInfo: 'on P&L',
                     boxes: [
                         {
                             text: 'Mortgage Principal Payments',
                             value: 104,
                             backgroundColor: '#8db1e2',
-                            textColor: '#FFFFFF'
+                            textColor: '#133100'
                         },
                         {
                             text: 'Outlays for Capital Projects',
                             value: 104,
                             backgroundColor: '#8db1e2',
-                            textColor: '#FFFFFF'
+                            textColor: '#133100'
                         }
                     ]
                 }
@@ -208,215 +236,56 @@ costAnalysisMapData = {
 
 costAnalysisMap = {
     ui: function (config) {
-        this.columnsWidth  = this._configureHeader.width = config.columnWidth;
-        this.columnsHeight = config.height;
         var mainContainer = this._createMainContainer(config);
-        this._createColumns(mainContainer, config.body);
+        this.columns.create(mainContainer, config);
     },
     _createMainContainer: function (config) {
+        var width = config.body.length * (config.columnWidth + this.configureGap.gapColumns);
         return d3.select('#' + config.container)
             .append('svg').attr({
-                width: 700,//config.width,
+                width: width,
                 height: config.height
             })
     },
-    _createColumns: function (mainContainer, columnsList) {
-        for(var index = 0; index < columnsList.length; index++) {
-            var columnContainer = this._createGroupContainer(mainContainer);
-            this._createColumn(index, columnContainer, columnsList[index]);
-        }
-    },
-    _createColumn: function (index, mainContainer, configColumn) {
-        var startPositionY = this._configureHeader.y;
-        var startPositionX = (this.columnsWidth + 20) * index;
+    configureGap: {
+        gapColumns: 10,
+        gapSectionsColumn: 5,
+        gapColumnHeaderAndGroups: 10,
+        gapGroupHeaderAndGroup: 10
+    }
 
-        this._createColumnHeader (mainContainer, configColumn.header,
-            {
-                x: startPositionX,
-                y: startPositionY
-            }
-        );
-
-
-        startPositionY = this._configureHeader.height + this._configureColumn.gapHeaderColumnAndGroups;
-        //startPositionX = (this.columnsWidth + 20) * index;
-
-        this._createGroups(
-            {
-                x: startPositionX,
-                y: startPositionY,
-                container: mainContainer
-            },
-            configColumn
-        );
-    },
-    _createColumnHeader: function (columnContainer, configHeader, position) {
-        var data = [];
-        data[0] = configHeader;
-        var headerContainer = this._createGroupContainer(columnContainer);
-        this._addContainer('rect', headerContainer, data, {
-            x: position.x,
-            y: position.y,
-            width: this._configureHeader.width,
-            height: this._configureHeader.height,
-            fill: function (data) {
-                return data.backgroundColor;
-            }
-        });
-        this._addContainerText(headerContainer, data, {
-            x: position.x + this._configureHeader.positionXText,
-            y: position.y + this._configureHeader.positionYText,
-            'text-anchor': 'start',
-            fill: function (data) {
-                return data.textColor;
-            }
+};
+costAnalysisMap.tools = {
+    createGroupContainer: function (container, classContainer) {
+        return container.append('g').attr({
+            class: classContainer
         });
     },
-    _createGroups: function (configGroup, configColumn) {
-        var height = this.columnsHeight - this._configureHeader.height - this._configureColumn.gapHeaderColumnAndGroups;
-        var countGroup = configColumn.body.length;
-        var heightContainer = (height - this._configureColumn.gapSectionsColumn * (countGroup - 1))  / countGroup;
-
-        var startPositionX = configGroup.x;
-        var startPositionY = configGroup.y;
-        var bodyContainer = this._createGroupContainer(configGroup.container);
-
-        for (var index = 0; index < countGroup; index++) {
-            this._createGroupHeader(
-                index,
-                heightContainer,
-                bodyContainer,
-                configColumn,
-                {
-                    x: startPositionX,
-                    y: startPositionY
-                }
-            );
-
-            var data = this._getContainersHeight(configColumn.body[index].boxes, heightContainer);
-            data = this._getContainersPosition(data,startPositionY);
-            var element = this._createGroupContainer(bodyContainer);
-            var width =  this.columnsWidth - this.columnsWidth * 0.15 - 5;
-            startPositionX += this.columnsWidth * 0.15 + 5;
-
-
-            element.selectAll("rect")
-                .data(data)
-                .enter().append("rect"). attr({
-                    height: function (data) {
-                        return data.heigth;
-                    },
-                    width: width,
-                    x: startPositionX,
-                    y: function (data) {
-                        return data.positionY;
-                    },
-                    fill: function (data) {
-                        return data.backgroundColor
-                    },
-                    stroke: '#000',
-                    'stroke-width': '0.5px'
-                });
-
-            startPositionY += heightContainer + this._configureColumn.gapSectionsColumn;
-            startPositionX = configGroup.x;
-        }
-    },
-    _createGroupHeader: function (index, heightContainer, container, configColumn, position) {
-        var headerContainer = this._createGroupContainer(container);
-        var data = [];
-        data[0] = configColumn.body[index];
-        this._addContainer('rect', headerContainer, data, {
-            x: position.x,
-            y: position.y,
-            width: this.columnsWidth * 0.15,
-            height: heightContainer,
-            fill: configColumn.header.backgroundColor,
-            stroke: '#000',
-            'stroke-width': '0.5px'
-        });
-    },
-    _createGroup: function () {
-
-    },
-    _createGroupContainer: function (container) {
-        return container.append('g');
-    },
-    _addContainer: function (type, mainContainer, data, config) {
+    addContainer: function (type, mainContainer, data, config) {
         mainContainer.selectAll(type)
             .data(data).enter()
             .append(type).attr(config);
     },
-    _addContainerText: function (mainContainer, data, config) {
+    addText: function (mainContainer, data, config, renderText) {
         mainContainer.selectAll('text')
             .data(data)
             .enter()
             .append('text')
             .attr(config)
-            .text(function(data) {
-                return data.name;
-            }
-        );
+            .text(renderText);
     },
-    _getContainersHeight: function (data, containerHeight) {
-        var maxElementHeight = this.tools._getMaxHeight(containerHeight, data.length);
-        var ignoreList = [];
-        var dataMaxValue = 0;
-        var rest = 0;
-        for (var index = 0; index < data.length; index++) {
-            var currentMaxValue = this.tools._getMax(data, ignoreList);
-            if (index == 0) {
-                dataMaxValue = currentMaxValue.max;
-            }
-            ignoreList[ignoreList.length] = currentMaxValue.index;
-
-            var currentHeight = Math.floor((currentMaxValue.max / dataMaxValue) * maxElementHeight);
-            rest += maxElementHeight - currentHeight;
-            data[index].heigth = currentHeight;
-        }
-        rest /= data.length;
-
-        for (var index = 0; index < data.length; index++) {
-            data[index].heigth += rest;
-        }
-        return data;
-    },
-    _getContainersPosition: function (configure, startPosition) {
-        for(var index = 0; index < configure.length; index++) {
-            var positionY = startPosition;
-            for (var j =0; j < index; j++) {
-                positionY += configure[j].heigth;
-            }
-            configure[index].positionY = positionY;
-        }
-        return configure;
-    },
-    _configureHeader: {
-        height: 50,
-        y: 0,
-        positionXText: 10,
-        positionYText: 20
-    },
-    _configureColumn: {
-        gapSectionsColumn: 5,
-        gapHeaderColumnAndGroups: 10,
-        gapHeaderGroupAndGroup: 10
-    }
-
-};
-costAnalysisMap.tools = {
-    _getMax: function (data, ignore) {
+    getMax: function (data, ignore) {
         var max = 0;
         var index = -1;
         for (var i=0;i<data.length;i++) {
-            if (!this._isIgnoreData(i, ignore) && max < data[i].value) {
+            if (!this.isIgnoreData(i, ignore) && max < data[i].value) {
                 max = data[i].value;
                 index = i;
             }
         }
         return { max: max, index: index };
     },
-    _isIgnoreData: function (index, ignore) {
+    isIgnoreData: function (index, ignore) {
         var result = false;
         for (var i=0;i<ignore.length;i++) {
             if(index == ignore[i]) {
@@ -426,11 +295,506 @@ costAnalysisMap.tools = {
         }
         return result;
     },
-    _getMaxHeight: function (containerHeight, lengthData) {
+    getMaxHeight: function (containerHeight, lengthData) {
         return containerHeight / lengthData;
+    },
+    clone: function (object) {
+        return Object.assign({}, object);
     }
 };
+costAnalysisMap.columns = {
+    create: function (mainContainer, config) {
+        this.columnWidth  = this._configureHeader.width = config.columnWidth;
+        this.columnsHeight = config.height;
+        var columnsList = config.body;
+        for(var index = 0; index < columnsList.length; index++) {
+            var columnContainer = costAnalysisMap.tools.createGroupContainer(mainContainer, 'column');
+            this._createColumn(index, columnContainer, columnsList[index]);
+        }
+    },
+    _createColumn: function (index, mainContainer, configColumn) {
+        var startPosition = this._calculateStartPosition(index);
+        this._createColumnHeader (mainContainer, configColumn.header, startPosition);
+        startPosition.y = this._configureHeader.height + costAnalysisMap.configureGap.gapColumnHeaderAndGroups;
 
+        switch (configColumn.type) {
+            case 'infrastructure':
+                this.groupInfrastructure.create(mainContainer, configColumn, startPosition, this._calculateGroupsSize());
+                break;
+            case 'expenses':
+                this.groupExpenses.create(mainContainer, configColumn, startPosition, this._calculateGroupsSize());
+                break;
+            case '':
+                break;
+        }
+    },
+    _createColumnHeader: function (columnContainer, configHeader, position) {
+        var data = [];
+        data[0] = configHeader;
+        var headerContainer = costAnalysisMap.tools.createGroupContainer(columnContainer, 'headerColumn');
+        this._renderTitleHeader(headerContainer, data, position);
+        this._renderValueHeader(headerContainer, data, position);
+        this._renderAdditionalInfoHeader(headerContainer, data, position);
+    },
+    _renderTitleHeader: function (mainContainer, data, position) {
+        var container = costAnalysisMap.tools.createGroupContainer(mainContainer, 'titleHeader');
+        costAnalysisMap.tools.addContainer('rect', container, data, {
+            x: position.x,
+            y: position.y,
+            width: this._configureHeader.width,
+            height: this._configureHeader.height,
+            fill: function (data) {
+                return data.backgroundColor;
+            }
+        });
+        costAnalysisMap.tools.addText(container, data,
+            {
+                x: position.x + this._configureHeader.positionXTitleText,
+                y: position.y + this._configureHeader.positionYTitleText,
+                'text-anchor': 'start',
+                fill: function (data) {
+                    return data.textColor;
+                }
+            },
+            function (data) {
+                return data.name;
+            }
+        );
+    },
+    _renderValueHeader: function (mainContainer, data, position) {
+        var container = costAnalysisMap.tools.createGroupContainer(mainContainer, 'valueHeader');
+        costAnalysisMap.tools.addText(container, data,
+            {
+                x: position.x + this._configureHeader.width - this._configureHeader.positionXTitleText,
+                y: position.y + this._configureHeader.positionYValueText,
+                'text-anchor': 'end',
+                fill: function (data) {
+                    return data.textColor;
+                }
+            },
+            function (data) {
+                return '$ ' + data.value + 'M';
+            }
+        );
+    },
+    _renderAdditionalInfoHeader: function (mainContainer, data, position) {
+        var container = costAnalysisMap.tools.createGroupContainer(mainContainer, 'additionalInfoHeader');
+        costAnalysisMap.tools.addText(container, data,
+            {
+                x: position.x + this._configureHeader.positionXTitleText,
+                y: position.y +  this._configureHeader.height - this._configureHeader.positionYAdditionalInfoText,
+                'text-anchor': 'start',
+                fill: function (data) {
+                    return data.textColor;
+                }
+            },
+            function (data) {
+                return '(' + data.additionalInfo + ')';
+            }
+        );
+    },
+    _calculateStartPosition: function (index) {
+        return {
+            x: (this.columnWidth + costAnalysisMap.configureGap.gapColumns) * index,
+            y: this._configureHeader.y
+        };
+    },
+    _calculateGroupsSize: function () {
+        return {
+            width: this.columnWidth,
+            height: this.columnsHeight - this._configureHeader.height - costAnalysisMap.configureGap.gapColumnHeaderAndGroups
+        };
+    },
+    _configureHeader: {
+        height: 50,
+        y: 0,
+        positionXTitleText: 10,
+        positionYTitleText: 20,
+        positionYValueText: 25,
+        positionYAdditionalInfoText: 5
+    }
+};
+costAnalysisMap.columns.groupInfrastructure = {
+    create: function (columnContainer, configColumn, position, size) {
+        this.configureGroup.minHeight = configColumn.minHeight;
+        var data = this._calculateSizeGroups(configColumn.body, size);
+        data = this._calculatePositionGroup(configColumn.body, position);
+        var groupsContainer = costAnalysisMap.tools.createGroupContainer(columnContainer, 'columnGroups');
+        for (var index = 0; index < data.length; index++) {
+            var container = costAnalysisMap.tools.createGroupContainer(groupsContainer, 'group');
+            var headerColor = {
+                backgroundColor: configColumn.header.backgroundColor,
+                textColor: configColumn.header.textColor
+            };
+            this.renderGroupHeader(container, data[index], headerColor);
+            this.renderGroup(container, data[index]);
+        }
+    },
+    _calculateSizeGroups: function (data, size) {
+        var count = data.length;
+        var heightContainer = (size.height - costAnalysisMap.configureGap.gapSectionsColumn * (count - 1));
+        var maxElementHeight = costAnalysisMap.tools.getMaxHeight(heightContainer, count);
+        var ignoreList = [];
+        var dataMaxValue = 0;
+        var rest = 0;
+        var countOnly = 0;
+        for (var index = 0; index < count; index++) {
+            var currentMaxValue = this._getMaxCountGroup(data, ignoreList);
+            if (index == 0) {
+                dataMaxValue = currentMaxValue.max;
+            }
+            ignoreList[ignoreList.length] = currentMaxValue.index;
+            var currentHeight = Math.floor((currentMaxValue.max / dataMaxValue) * maxElementHeight);
+
+            if (currentMaxValue.max == 1) {
+                currentHeight = this.configureGroup.minHeight;
+                countOnly++;
+            }
+            rest += maxElementHeight - currentHeight;
+            data[currentMaxValue.index].heigth = currentHeight;
+            data[currentMaxValue.index].width = size.width * this.configureGroup.proportionGroupHeader;
+        }
+        rest /= (count - countOnly);
+
+        for (var index = 0; index < data.length; index++) {
+            if(data[index].heigth !=  this.configureGroup.minHeight) {
+                data[index].heigth += rest;
+            }
+
+        }
+        return data;
+    },
+    _calculatePositionGroup: function (data, position) {
+        for(var index = 0; index < data.length; index++) {
+            var positionY = position.y;
+            for (var j = 0; j < index; j++) {
+                positionY += data[j].heigth + costAnalysisMap.configureGap.gapSectionsColumn;
+            }
+            data[index].positionY = positionY;
+            data[index].positionX = position.x;
+        }
+        return data;
+    },
+    _getMaxCountGroup: function (data, ignore) {
+        var max = 0;
+        var index = -1;
+        for (var i = 0; i < data.length; i++) {
+            if (!costAnalysisMap.tools.isIgnoreData(i, ignore) && max < data[i].boxes.length) {
+                max = data[i].boxes.length;
+                index = i;
+            }
+        }
+        return { max: max, index: index };
+    },
+    renderGroupHeader: function (mainContainer, data, headerColor) {
+        var container = costAnalysisMap.tools.createGroupContainer(mainContainer, 'groupHeader');
+        var groupData = [];
+        groupData[0] = data;
+        costAnalysisMap.tools.addContainer('rect', container, groupData, {
+            x: data.positionX,
+            y: data.positionY,
+            width: data.width,
+            height: data.heigth,
+            fill: headerColor.backgroundColor,
+            stroke: '#000',
+            'stroke-width': '0.5px'
+        });
+        var textPositionX = data.positionX + (data.width/2) + 5;
+        var textPositionY = data.positionY + data.heigth /2;
+        costAnalysisMap.tools.addText(container, groupData,
+            {
+                x: textPositionX,
+                y: textPositionY,
+                'text-anchor': 'middle',
+                fill: headerColor.textColor,
+                //'writing-mode': 'tb-rl'
+                'transform': 'rotate(-90 ' + textPositionX +' '+ textPositionY +')'
+            },
+            function (data) {
+                return data.name;
+            }
+        );
+    },
+    renderGroup: function (mainContainer, data) {
+        var container = costAnalysisMap.tools.createGroupContainer(mainContainer, 'groupBody');
+        var boxes = this._calculateSizeElements(data.boxes, {
+                height: data.heigth,
+                width: (data.width / this.configureGroup.proportionGroupHeader) - data.width - costAnalysisMap.configureGap.gapGroupHeaderAndGroup
+            }
+        ) ;
+        boxes = this._calculatePositionElements(data.boxes, {
+                y: data.positionY,
+                x: data.positionX + data.width + costAnalysisMap.configureGap.gapGroupHeaderAndGroup
+        });
+        for (var index = 0; index < boxes.length; index++) {
+            this._renderElement(container, boxes[index]);
+        }
+    },
+    _calculateSizeElements: function (data, size) {
+        var height = size.height;
+        var maxElementHeight = costAnalysisMap.tools.getMaxHeight(height, data.length);
+        var ignoreList = [];
+        var dataMaxValue = 0;
+        var rest = 0;
+        for (var index = 0; index < data.length; index++) {
+            var currentMaxValue = costAnalysisMap.tools.getMax(data, ignoreList);
+            if (index == 0) {
+                dataMaxValue = currentMaxValue.max;
+            }
+            ignoreList[ignoreList.length] = currentMaxValue.index;
+
+            var currentHeight = Math.floor((currentMaxValue.max / dataMaxValue) * maxElementHeight);
+            rest += maxElementHeight - currentHeight;
+            data[currentMaxValue.index].heigth = currentHeight;
+            data[currentMaxValue.index].width = size.width;
+        }
+        rest /= data.length;
+
+        for (var index = 0; index < data.length; index++) {
+            data[index].heigth += rest;
+        }
+        return data;
+    },
+    _calculatePositionElements: function (data, position) {
+        for(var index = 0; index < data.length; index++) {
+            var positionY = position.y;
+            for (var j = 0; j < index; j++) {
+                positionY += data[j].heigth;
+            }
+            data[index].positionY = positionY;
+            data[index].positionX = position.x;
+        }
+        return data;
+    },
+    _renderElement: function (mainContainer, data) {
+        var container = costAnalysisMap.tools.createGroupContainer(mainContainer, 'groupElement');
+        var dataElement = [];
+        dataElement[0] = data;
+        this._renderBodyElement(container, dataElement,
+            {
+                x: data.positionX,
+                y: data.positionY
+            },
+            {
+                width: data.width,
+                height: data.heigth
+            }
+        )
+
+    },
+    _renderBodyElement: function (mainContainer, data, position, size) {
+        costAnalysisMap.tools.addContainer('rect', mainContainer, data, {
+            x: position.x,
+            y: position.y,
+            width: size.width,
+            height: size.height,
+            fill: function (data) {
+                return data.backgroundColor;
+            },
+            stroke: '#000',
+            'stroke-width': '0.5px'
+        });
+        var textPositionX = position.x + (size.width) - 10;
+        var textPositionY = position.y + 20;
+        costAnalysisMap.tools.addText(mainContainer, data,
+            {
+                x: textPositionX,
+                y: textPositionY,
+                'text-anchor': 'end',
+                fill: function (data) {
+                    return data.textColor;
+                }
+            },
+            function (data) {
+                return data.text;
+            }
+        );
+        if (size.height > 40) {
+            this._renderValueBodyElement(mainContainer, data, {
+                x: textPositionX,
+                y: textPositionY + 20
+            });
+        }
+        if (size.height > 55) {
+            this._renderInfoBodyElement(mainContainer, data, position);
+        }
+
+    },
+    _renderValueBodyElement: function (mainContainer, data, position) {
+        var container = costAnalysisMap.tools.createGroupContainer(mainContainer, 'groupElementValue');
+        costAnalysisMap.tools.addText(container, data,
+            {
+                x: position.x,
+                y: position.y,
+                'text-anchor': 'end',
+                fill: function (data) {
+                    return data.textColor;
+                }
+            },
+            function (data) {
+                if (data.value) {
+                    return '$' + data.value + 'M';
+                } else {
+                    return '';
+                }
+
+            }
+        );
+    },
+    _renderInfoBodyElement: function (mainContainer, data, position) {
+        var container = costAnalysisMap.tools.createGroupContainer(mainContainer, 'groupElementInfo');
+        container.selectAll('circle')
+            .data(data).enter()
+            .append('circle')
+            .filter(function(data) {
+                if (data.info) {
+                    return true;
+                }
+                return false;
+            })
+            .attr({
+                cx: position.x + 30,
+                cy: position.y + 30,
+                r: 25,
+                fill: function (data) {
+                    return '#EEFF92';
+                },
+                stroke: '#000',
+                'stroke-width': '0.5px'
+            });
+        container.selectAll('text')
+            .data(data)
+            .enter()
+            .append('text')
+            .filter(function(data) {
+                if (data.info) {
+                    return true;
+                }
+                return false;
+            })
+            .attr({
+                x: position.x + 33,
+                y: position.y + 35,
+                'text-anchor': 'middle',
+                fill: function (data) {
+                    return 'black';
+                }
+            })
+            .text(function (data) {
+                return data.info + '%';
+            });
+
+    },
+    configureGroup: {
+        proportionGroupHeader: 0.15
+    }
+};
+costAnalysisMap.columns.groupExpenses = {
+    create: costAnalysisMap.columns.groupInfrastructure.create,
+    _calculateSizeGroups: costAnalysisMap.columns.groupInfrastructure._calculateSizeGroups,
+    _calculatePositionGroup: costAnalysisMap.columns.groupInfrastructure._calculatePositionGroup,
+    _getMaxCountGroup: costAnalysisMap.columns.groupInfrastructure._getMaxCountGroup,
+    renderGroupHeader: function (mainContainer, data, headerColor) {
+        var container = costAnalysisMap.tools.createGroupContainer(mainContainer, 'groupHeader');
+        var groupData = [];
+        var groupWidth = (data.width / this.configureGroup.proportionGroupHeader) - data.width;
+        groupData[0] = data;
+        this._renderTitleHeader(container, groupData, headerColor, groupWidth);
+        if (data.value) {
+            this._renderValueHeader(container, groupData, headerColor, groupWidth);
+        }
+        if (data.additionalInfo) {
+            this._renderAdditionalInfoHeader(container, groupData, headerColor, groupWidth);
+        }
+    },
+    _renderTitleHeader: function (mainContainer, groupData, headerColor, groupWidth) {
+        var data = groupData[0];
+        var container = costAnalysisMap.tools.createGroupContainer(mainContainer, 'groupHeaderTitle');
+        costAnalysisMap.tools.addContainer('rect', container, groupData, {
+            x: groupWidth + data.positionX,
+            y: data.positionY,
+            width: data.width,
+            height: data.heigth,
+            fill: headerColor.backgroundColor,
+            stroke: '#000',
+            'stroke-width': '0.5px'
+        });
+        var textPositionX = groupWidth + data.positionX + (data.width/2) - 10;
+        var textPositionY = data.positionY + data.heigth /2;
+        costAnalysisMap.tools.addText(container, groupData,
+            {
+                x: textPositionX,
+                y: textPositionY,
+                'text-anchor': 'middle',
+                fill: headerColor.textColor,
+                'transform': 'rotate(-90 ' + textPositionX +' '+ textPositionY +')'
+            },
+            function (data) {
+                return data.name;
+            }
+        );
+    },
+    _renderValueHeader: function (mainContainer, groupData, headerColor, groupWidth) {
+        var data = groupData[0];
+        var container = costAnalysisMap.tools.createGroupContainer(mainContainer, 'groupHeaderValue');
+        var textPositionX = groupWidth + data.positionX + (data.width/2) + 10;
+        var textPositionY = data.positionY + data.heigth /2;
+        costAnalysisMap.tools.addText(container, groupData,
+            {
+                x: textPositionX,
+                y: textPositionY,
+                'text-anchor': 'middle',
+                fill: headerColor.textColor,
+                'transform': 'rotate(-90 ' + textPositionX +' '+ textPositionY +')'
+            },
+            function (data) {
+                return '$' + data.value + 'M';
+            }
+        );
+    },
+    _renderAdditionalInfoHeader: function (mainContainer, groupData, headerColor, groupWidth) {
+        var data = groupData[0];
+        var container = costAnalysisMap.tools.createGroupContainer(mainContainer, 'groupHeaderAdditionalInfo');
+        var textPositionX = groupWidth + data.positionX + (data.width/2) + 23;
+        var textPositionY = data.positionY + data.heigth /2;
+        costAnalysisMap.tools.addText(container, groupData,
+            {
+                x: textPositionX,
+                y: textPositionY,
+                'text-anchor': 'middle',
+                fill: headerColor.textColor,
+                'transform': 'rotate(-90 ' + textPositionX +' '+ textPositionY +')'
+            },
+            function (data) {
+                return '(' + data.additionalInfo + ')';
+            }
+        );
+    },
+    renderGroup: function (mainContainer, data) {
+        var container = costAnalysisMap.tools.createGroupContainer(mainContainer, 'groupBody');
+        var boxes = this._calculateSizeElements(data.boxes, {
+                height: data.heigth,
+                width: (data.width / this.configureGroup.proportionGroupHeader) - data.width
+            }
+        ) ;
+        boxes = this._calculatePositionElements(data.boxes, {
+            y: data.positionY,
+            x: data.positionX
+        });
+        for (var index = 0; index < boxes.length; index++) {
+            this._renderElement(container, boxes[index]);
+        }
+    },
+    _calculateSizeElements: costAnalysisMap.columns.groupInfrastructure._calculateSizeElements,
+    _calculatePositionElements: costAnalysisMap.columns.groupInfrastructure._calculatePositionElements,
+    _renderElement: costAnalysisMap.columns.groupInfrastructure._renderElement,
+    _renderBodyElement: costAnalysisMap.columns.groupInfrastructure._renderBodyElement,
+    _renderValueBodyElement: costAnalysisMap.columns.groupInfrastructure._renderValueBodyElement,
+    _renderInfoBodyElement: costAnalysisMap.columns.groupInfrastructure._renderInfoBodyElement,
+    configureGroup: {
+        proportionGroupHeader: 0.25
+    }
+};
 
 costAnalysisMap.ui(costAnalysisMapData);
 
